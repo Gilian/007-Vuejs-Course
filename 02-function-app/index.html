@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Execute a Function</title>
+    <title>Document</title>
     <script src="../vue-source/vue.js"></script>
 </head>
 <body>
@@ -12,6 +12,7 @@
         <!-- Event+EventType, then call a function -->
         <input type="text" v-on:input="changeTitle">
         <p>{{ title }}</p>
+        <p>{{ sayHello() }}</p>
     </div>
 
 <script>
@@ -23,7 +24,11 @@
         },
         methods: {
             changeTitle: function(event) {
+                // Gives access to the data-object cause of the this proxy-keyword
                 this.title = event.target.value;
+            },
+            sayHello: function () {
+                return 'Hello!'
             }
         }
     });

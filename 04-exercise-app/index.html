@@ -1,0 +1,41 @@
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<div id="exercise">
+   <!-- 1) Fill the <p> below with your Name and Age - using Interpolation -->
+    <p>VueJS is pretty cool - {{ myName }} ({{ myAge }})</p>
+    <!-- 2) Output your age, multiplied by 3 -->
+    <p>{{ mulitplyByThree() }}</p>
+    <!-- or just write an expression -->
+    <p> {{ myAge * 3 }} </p>
+    <p></p>
+    <!-- 3) Call a function to output a random float between 0 and 1 (Math.random()) -->
+    <p>{{ randInt() }}</p>
+    <!-- 4) Search any image on Google and output it here by binding the "src" attribute -->
+    <div>
+        <img style="width:100px;height:100px" v-bind:src="myLink">
+    </div>
+    <!-- 5) Pre-Populate this input with your name (set the "value" attribute) -->
+    <div>
+        <input type="text" v-bind:value="myName">
+    </div>
+
+    <script>
+        // Runtime Script
+        new Vue({
+            el: '#exercise',
+            data: {
+                myName: 'Tobias',
+                myAge: '26',
+                myLink: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/FuBK_testcard_vectorized.svg/2000px-FuBK_testcard_vectorized.svg.png'
+            },
+            methods: {
+                mulitplyByThree: function () {
+                    return this.myAge * 3;
+                },
+                randInt: function() {
+                    return Math.random();
+                }
+            }
+        });
+    </script>
+</div>

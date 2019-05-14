@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Execute a Function</title>
+    <title>Document</title>
     <script src="../vue-source/vue.js"></script>
 </head>
 <body>
     <div id="app">
         <!-- Event+EventType, then call a function -->
-        <input type="text" v-on:input="changeTitle">
         <p>{{ title }}</p>
+        <p>{{ sayHello() }} | <a v-bind:href="linkTarget">Google</a></p>
+
     </div>
 
 <script>
@@ -19,11 +20,12 @@
     new Vue ({
         el: '#app',
         data: {
-            title: 'Hello World!'
+            title: 'Hello World!',
+            linkTarget: "https://google.de"
         },
         methods: {
-            changeTitle: function(event) {
-                this.title = event.target.value;
+            sayHello: function () {
+                return 'Hello!'
             }
         }
     });
