@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Execute a Function</title>
+    <script src="../vue-source/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Event+EventType, then call a function -->
+        <button v-on:click="increase">Click me!</button>
+        <!-- Alternative with parameter -->
+        <button v-on:click="increaseBy(2)">Click me!</button>
+        <p>{{ counter }}</p>
+        <p v-on:mousemove="updateCoordinates">
+            Coordinates: {{ x }} / {{ y }}
+            <span v-on:mousemove.stop>DON'T UPDATE!</span>
+        </p>
+    </div>
+
+<script>
+    // Runtime Script
+    new Vue ({
+        el: '#app',
+        data: {
+            counter: 0,
+            x: 0,
+            y: 0
+        },
+        methods: {
+            increase: function() {
+                this.counter++;
+            },
+            increaseBy: function(step) {
+                this.counter *= step;
+            },
+            updateCoordinates: function(event) {
+                // Access the event values
+                this.x = event.clientX;
+                this.y = event.clientY;
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <script src="../vue-source/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <!-- Style via class -->
+        <div class="demo" v-on:click="attachRed = !attachRed" v-bind:class="{red: attachRed}"></div>
+        <!-- Style via style -->
+        <div class="demo" v-bind:style="{backgroundColor: color}"></div>
+        <!-- Custom style-->
+        <div class="demo" v-bind:style="myStyle"></div>
+        <!-- Combo-->
+        <div class="demo" v-bind:style="[myStyle, {height: width + 'px'}]"></div>
+        <hr>
+        <input type="text" v-model="color" />
+        <input type="text" v-model="width" />
+    </div>
+
+<script>
+    // Runtime Script
+    new Vue({
+        el: "#app",
+        data: {
+            attachRed: false,
+            color: 'grey',
+            width: 100
+        },
+        computed: {
+            myStyle: function() {
+                return {
+                    backgroundColor: this.color,
+                    width: this.width + 'px'
+                };
+            }
+        }
+    });
+</script>
+</body>
+</html>
