@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(ingredient, i) in ingredients">{{ ingredient}} {{ i }}</li>
+        </ul>
+        <!-- Seperate -->
+        <template v-for="(ingredientlist, index) in ingredients">
+            <h1>{{ ingredientlist }}</h1>
+            <p>{{ index }}</p>
+        </template>
+        <hr>
+        <!-- Populate the object -->
+        <ul>
+            <li v-for="person in persons">{{ person.name }}</li> <!-- simple -->
+            <li v-for="person in persons"><!-- nested -->
+                <div v-for="value in person">Value: {{ value }}</span>
+                <br/>
+                <div v-for="(value, key, looped) in person">Value: {{ value }}, Key: {{ key }}, Loop: {{ looped }}</span>
+            </li> 
+            <span v-for="n in 10">{{ n }}</span>
+        </ul>
+        <hr>
+    </div>
+    
+
+<script src="../vue-source/vue.min.js"></script>
+<script>
+    // Runtime Script
+    new Vue({
+        el: '#app',
+        data: {
+            ingredients: ['meat', 'fruit', 'cookies'],
+            persons: [
+                {name: 'Max', age: 27, color: 'red'},
+                {name: 'Anna', age: 'unkown', color: 'blue'}
+            ]
+        }
+    });
+</script>
+</body>
+</html>
