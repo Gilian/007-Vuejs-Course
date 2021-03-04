@@ -1,2 +1,3 @@
-/material/*
+vue-version-2/material/*
 node_modules
+.DS_Store
